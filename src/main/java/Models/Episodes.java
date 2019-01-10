@@ -1,12 +1,41 @@
 package Models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+
+@Entity
 public class Episodes {
+	@Id
+	@GeneratedValue
 	private int ID_serie;
 	private int ID_episode;
+	public int duree;
 	private String title;
 	private int num_episode;
 	private String DateSortie;
 	private String Description;
+	
+	
+	
+	public Episodes(int iD_serie, int iD_episode, int duree, String title, int num_episode, String dateSortie,
+			String description) {
+		super();
+		ID_serie = iD_serie;
+		ID_episode = iD_episode;
+		this.duree = duree;
+		this.title = title;
+		this.num_episode = num_episode;
+		DateSortie = dateSortie;
+		Description = description;
+	}
+	
+	public int getDuree() {
+		return duree;
+	}
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
 	public int getID_serie() {
 		return ID_serie;
 	}
@@ -43,16 +72,5 @@ public class Episodes {
 	public void setDescription(String description) {
 		Description = description;
 	}
-	public Episodes(int iD_serie, int iD_episode, String title, int num_episode, String dateSortie,
-			String description) {
-		super();
-		ID_serie = iD_serie;
-		ID_episode = iD_episode;
-		this.title = title;
-		this.num_episode = num_episode;
-		DateSortie = dateSortie;
-		Description = description;
-	}
 	
-
 }
