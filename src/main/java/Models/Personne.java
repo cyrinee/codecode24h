@@ -1,21 +1,37 @@
 package Models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Personne")
+
 
 public class Personne {
 
 	@Id
 	@GeneratedValue
 	private Long id_user;
+	@Column(name="Nom")
+
 	private String nom;
+	@Column(name="prenom")
+
 	private String prenom;
+	@Column(name="age")
+
 	private int age;
+	@Column(name="mdp")
+
 	private String mdp;
+	@Column(name="pays")
+
 	private String pays;
+	@Column(name="email")
+
 	private String email;
 	public Long getId_user() {
 		return id_user;

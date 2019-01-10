@@ -2,9 +2,13 @@ package Models;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
 
+@Table(name="Series")
 public class Series {
 	
 	@Id

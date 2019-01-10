@@ -6,17 +6,32 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 @Entity
+
+@Table(name="Films")
+
 public class Films {
 	@Id
 	@GeneratedValue
 	private int ID_film;
+	@Column(name="title")
+
 	private String title;
 	public int duree;
+	@Column(name="date_sortie")
+
 	private String DateSortie;
+	@Column(name="description")
+
 	private String Description;
 	private ArrayList<Genre> Genre;
+	@Column(name="acteurs")
+
 	private ArrayList<Acteurs> Acteurs;
 	
 	
