@@ -2,21 +2,47 @@ package Models;
 
 import java.util.ArrayList;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Films {
+	@Id
+	@GeneratedValue
 	private int ID_film;
 	private String title;
+	public int duree;
 	private String DateSortie;
 	private String Description;
+	private ArrayList<Genre> Genre;
 	private ArrayList<Acteurs> Acteurs;
 	
 	
-	public Films(int iD_film, String title, String dateSortie, String description, ArrayList<Models.Acteurs> acteurs) {
+	
+	public Films(int iD_film, String title, int duree, String dateSortie, String description,
+			ArrayList<Models.Genre> genre, ArrayList<Models.Acteurs> acteurs) {
 		super();
 		ID_film = iD_film;
 		this.title = title;
+		this.duree = duree;
 		DateSortie = dateSortie;
 		Description = description;
+		Genre = genre;
 		Acteurs = acteurs;
+	}
+	public int getDuree() {
+		return duree;
+	}
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
+	public ArrayList<Genre> getGenre() {
+		return Genre;
+	}
+	public void setGenre(ArrayList<Genre> genre) {
+		Genre = genre;
 	}
 	public int getID_film() {
 		return ID_film;

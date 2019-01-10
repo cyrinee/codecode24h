@@ -1,6 +1,16 @@
 package Models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+
 public class Acteurs {
+	
+	@Id
+	@GeneratedValue
 	private String nom;
 	private String prenom;
 	private String origine;
