@@ -2,27 +2,42 @@ package Models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 public class Episodes {
+	
+	
 	@Id
 	@GeneratedValue
-	private int ID_serie;
 	private int ID_episode;
+	@OneToOne
+    @JoinColumn(name="ID_Saisons")
+	private Saisons Saisons;
+	@Column(name = "duree")
 	public int duree;
+	@Column(name = "title")
 	private String title;
+	@Column(name = "num_episode")
 	private int num_episode;
+	@Column(name = "DateSortie")
 	private String DateSortie;
+	@Column(name = "Description")
 	private String Description;
 	
 	
 	
-	public Episodes(int iD_serie, int iD_episode, int duree, String title, int num_episode, String dateSortie,
-			String description) {
+	
+	
+	
+	public Episodes(int iD_serie, int iD_episode, Models.Saisons iD_Saisons, int duree, String title, int num_episode,
+			String dateSortie, String description) {
 		super();
-		ID_serie = iD_serie;
 		ID_episode = iD_episode;
+		Saisons = iD_Saisons;
 		this.duree = duree;
 		this.title = title;
 		this.num_episode = num_episode;
@@ -30,18 +45,21 @@ public class Episodes {
 		Description = description;
 	}
 	
+	public Models.Saisons getSaisons() {
+		return Saisons;
+	}
+
+	public void setSaisons(Models.Saisons iD_Saisons) {
+		Saisons = iD_Saisons;
+	}
+
 	public int getDuree() {
 		return duree;
 	}
 	public void setDuree(int duree) {
 		this.duree = duree;
 	}
-	public int getID_serie() {
-		return ID_serie;
-	}
-	public void setID_serie(int iD_serie) {
-		ID_serie = iD_serie;
-	}
+	
 	public int getID_episode() {
 		return ID_episode;
 	}

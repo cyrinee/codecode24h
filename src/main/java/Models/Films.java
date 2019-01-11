@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 @Entity
 
 @Table(name="Films")
@@ -25,13 +24,13 @@ public class Films {
 	public int duree;
 	@Column(name="date_sortie")
 
-	private String DateSortie;
+	private String date_sortie;
 	@Column(name="description")
 
 	private String Description;
+	@OneToMany
 	private ArrayList<Genre> Genre;
-	@Column(name="acteurs")
-
+	@ManyToMany
 	private ArrayList<Acteurs> Acteurs;
 	
 	
@@ -42,7 +41,7 @@ public class Films {
 		ID_film = iD_film;
 		this.title = title;
 		this.duree = duree;
-		DateSortie = dateSortie;
+		date_sortie = dateSortie;
 		Description = description;
 		Genre = genre;
 		Acteurs = acteurs;
@@ -72,10 +71,10 @@ public class Films {
 		this.title = title;
 	}
 	public String getDateSortie() {
-		return DateSortie;
+		return date_sortie;
 	}
 	public void setDateSortie(String dateSortie) {
-		DateSortie = dateSortie;
+		date_sortie = dateSortie;
 	}
 	public String getDescription() {
 		return Description;

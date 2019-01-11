@@ -2,9 +2,11 @@ package Models;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 
@@ -14,15 +16,24 @@ public class Series {
 	@Id
 	@GeneratedValue
 	private int ID_Series;
+	@Column(name = "duree")
 	private int duree;
+	@Column(name = "title")
 	private String title;
+	@Column(name = "DateSortie")
 	private String DateSortie;
+	@Column(name = "Description")
 	private String Description;
+	
+	@OneToMany
 	private ArrayList<Genre> Genre;
-	private ArrayList<Episodes> Episodes;
+	@OneToMany
+	private ArrayList<Saisons> Saisons;
+	@OneToMany
 	private ArrayList<Acteurs> Acteurs;
+	
 	public Series(int iD_Series, int duree, String title, String dateSortie, String description,
-			ArrayList<Models.Genre> genre, ArrayList<Models.Episodes> episodes, ArrayList<Models.Acteurs> acteurs) {
+			ArrayList<Models.Genre> genre, ArrayList<Models.Saisons> Saisons, ArrayList<Models.Acteurs> acteurs) {
 		super();
 		ID_Series = iD_Series;
 		this.duree = duree;
@@ -30,7 +41,7 @@ public class Series {
 		DateSortie = dateSortie;
 		Description = description;
 		Genre = genre;
-		Episodes = episodes;
+		Saisons = Saisons;
 		Acteurs = acteurs;
 	}
 	public int getID_Series() {
@@ -69,11 +80,11 @@ public class Series {
 	public void setGenre(ArrayList<Genre> genre) {
 		Genre = genre;
 	}
-	public ArrayList<Episodes> getEpisodes() {
-		return Episodes;
+	public ArrayList<Saisons> getEpisodes() {
+		return Saisons;
 	}
-	public void setEpisodes(ArrayList<Episodes> episodes) {
-		Episodes = episodes;
+	public void setEpisodes(ArrayList<Saisons> Saisons) {
+		Saisons = Saisons;
 	}
 	public ArrayList<Acteurs> getActeurs() {
 		return Acteurs;
